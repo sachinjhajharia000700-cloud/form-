@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Personal Information Form</title>
+    <!-- Outfit Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="header">
+                <h2>Personal Information Form</h2>
+                <p>Please fill out the form details below carefully.</p>
+            </div>
+            <hr>
+            
+            <div class="form-container">
+                <form id="registrationForm" action="#" method="POST" enctype="multipart/form-data">
+                    
+                    <!-- Section 1: Personal Identity -->
+                    <fieldset>
+                        <legend>Personal Identity</legend>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Sachin" required minlength="2" maxlength="20">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="middleName">Middle Name</label>
+                                <input type="text" id="middleName" name="middleName" placeholder="Kumar" maxlength="20">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Jhajharia" required minlength="2" maxlength="20">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <div class="gender-group">
+                                    <label class="gender-radio">
+                                        <input type="radio" name="gender" value="male" required>
+                                        <span class="gender-btn">Male</span>
+                                    </label>
+                                    <label class="gender-radio">
+                                        <input type="radio" name="gender" value="female" required>
+                                        <span class="gender-btn">Female</span>
+                                    </label>
+                                    <label class="gender-radio">
+                                        <input type="radio" name="gender" value="other" required>
+                                        <span class="gender-btn">Other</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label>Profile Picture</label>
+                                <div class="profile-upload-container">
+                                    <div class="profile-preview-wrapper" id="profilePreviewBtn" title="Click to upload profile picture">
+                                        <img id="profilePreview" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a0aec0'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" alt="Profile Preview">
+                                        <div class="profile-preview-overlay">
+                                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                        </div>
+                                    </div>
+                                    <div class="profile-upload-info">
+                                        <div class="file-input-wrapper">
+                                            <button type="button" class="btn-upload" id="customUploadBtn">Choose Image</button>
+                                            <input type="file" id="profilePic" name="profilePic" accept="image/*" required>
+                                        </div>
+                                        <p class="file-requirements">JPG, PNG or GIF. Max size 2MB.</p>
+                                        <p id="fileNameDisplay" class="file-name-display">No file chosen</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Section 2: Account Security -->
+                    <fieldset>
+                        <legend>Account Security</legend>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="Min 8 chars, 1 capital, 1 number, 1 special" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Section 3: Contact & Address Information -->
+                    <fieldset>
+                        <legend>Contact & Address</legend>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="altPhone">Alternate Phone Number</label>
+                                <input type="tel" id="altPhone" name="altPhone" placeholder="Enter alternate phone number" required>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="address">Street Address</label>
+                                <input type="text" id="address" name="address" placeholder="123 Main St, Apt 4B" required>
+                            </div>
+                            
+                            <div class="form-group" id="countryGroup">
+                                <label for="country">Country</label>
+                                <div class="select-input-container">
+                                    <select id="country" name="country" required>
+                                        <option value="" disabled selected>Select Country</option>
+                                        <option value="India">India</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="custom-input-wrapper" id="customCountryWrapper" style="display: none;">
+                                        <input type="text" id="customCountry" name="customCountry" placeholder="Enter Country Name">
+                                        <button type="button" class="btn-toggle-select" id="toggleCountry" title="Back to dropdown">✕</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="stateGroup">
+                                <label for="state">State</label>
+                                <div class="select-input-container">
+                                    <select id="state" name="state" required disabled>
+                                        <option value="" disabled selected>Select Country First</option>
+                                    </select>
+                                    <div class="custom-input-wrapper" id="customStateWrapper" style="display: none;">
+                                        <input type="text" id="customState" name="customState" placeholder="Enter State Name">
+                                        <button type="button" class="btn-toggle-select" id="toggleState" title="Back to dropdown">✕</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="cityGroup">
+                                <label for="city">City</label>
+                                <div class="select-input-container">
+                                    <select id="city" name="city" required disabled>
+                                        <option value="" disabled selected>Select State First</option>
+                                    </select>
+                                    <div class="custom-input-wrapper" id="customCityWrapper" style="display: none;">
+                                        <input type="text" id="customCity" name="customCity" placeholder="Enter City Name">
+                                        <button type="button" class="btn-toggle-select" id="toggleCity" title="Back to dropdown">✕</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pincode">Pin code</label>
+                                <input type="text" id="pincode" name="pincode" placeholder="6-digit ZIP code" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Section 4: Preferences & Extras -->
+                    <fieldset>
+                        <legend>Preferences & Hobbies</legend>
+                        <div class="form-group full-width">
+                            <label>Hobbies / Interests (Select all that apply)</label>
+                            <div class="hobbies-group">
+                                <label class="hobby-checkbox">
+                                    <input type="checkbox" name="hobbies" value="reading">
+                                    <span>Reading</span>
+                                </label>
+                                <label class="hobby-checkbox">
+                                    <input type="checkbox" name="hobbies" value="traveling">
+                                    <span>Traveling</span>
+                                </label>
+                                <label class="hobby-checkbox">
+                                    <input type="checkbox" name="hobbies" value="gaming">
+                                    <span>Gaming</span>
+                                </label>
+                                <label class="hobby-checkbox">
+                                    <input type="checkbox" name="hobbies" value="sports">
+                                    <span>Sports</span>
+                                </label>
+                                <label class="hobby-checkbox">
+                                    <input type="checkbox" name="hobbies" value="music">
+                                    <span>Music</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Info</button>
+                        <button type="reset" class="btn btn-secondary">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Review Section -->
+            <div id="reviewContainer" class="review-container" style="display: none;">
+                <hr>
+                <div class="header" style="margin-top: 1.5rem;">
+                    <h3>Review Your Information</h3>
+                    <p>Double-check your entries below. Click "Edit" to change cells directly in the table, then submit.</p>
+                </div>
+                
+                <div class="table-wrapper">
+                    <table id="reviewTable" class="review-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 35%;">Field</th>
+                                <th style="width: 65%;">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamically populated rows -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="review-actions">
+                    <button type="button" id="finalSubmitBtn" class="btn btn-primary">Final Submit</button>
+                    <button type="button" id="tableEditBtn" class="btn btn-secondary">Edit</button>
+                    <button type="button" id="cancelReviewBtn" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    
+    <script src="project.js?v=2" defer></script>
+</body>
+</html>
